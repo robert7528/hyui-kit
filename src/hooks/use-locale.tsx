@@ -1,5 +1,3 @@
-'use client'
-
 import { createContext, useCallback, useContext, useMemo, useState } from 'react'
 import { PLATFORM_STORAGE_KEYS } from '../lib/constants'
 import type { Locale } from '../i18n'
