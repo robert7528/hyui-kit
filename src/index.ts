@@ -51,6 +51,11 @@ export {
 
 export { Toaster, toast } from './components/sonner'
 
+// ── Wujie-compatible alternatives ────────────────────────────────────────────
+// Use these in wujie sub-apps instead of Radix Dialog/Tooltip/Popover.
+export { CssTooltip, InlinePopover, ConfirmModal } from './components/wujie-compat'
+export type { CssTooltipProps, InlinePopoverProps, ConfirmModalProps } from './components/wujie-compat'
+
 // ── Lib ─────────────────────────────────────────────────────────────────────
 export { cn } from './lib/utils'
 export { PLATFORM_STORAGE_KEYS } from './lib/constants'
