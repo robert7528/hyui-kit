@@ -46,6 +46,8 @@ export {
   Tooltip, TooltipTrigger, TooltipContent, TooltipProvider,
 } from './components/tooltip'
 
+export { Toaster, toast } from './components/sonner'
+
 // ── Lib ─────────────────────────────────────────────────────────────────────
 export { cn } from './lib/utils'
 export { PLATFORM_STORAGE_KEYS } from './lib/constants'
