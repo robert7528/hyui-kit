@@ -45,21 +45,27 @@ function InlinePopover({ trigger, align = "left", className, children }: InlineP
   const [open, setOpen] = useState(false)
   const ref = React.useRef<HTMLSpanElement>(null)
 
-  // Close on click outside
+  // Close on click outside (use mousedown to avoid conflict with trigger click)
   useEffect(() => {
     if (!open) return
-    const handleClick = (e: MouseEvent) => {
+    const handleMouseDown = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false)
       }
     }
-    window.addEventListener("click", handleClick)
-    return () => window.removeEventListener("click", handleClick)
+    // Delay registration to avoid catching the same click that opened it
+    const timer = setTimeout(() => {
+      document.addEventListener("mousedown", handleMouseDown)
+    }, 0)
+    return () => {
+      clearTimeout(timer)
+      document.removeEventListener("mousedown", handleMouseDown)
+    }
   }, [open])
 
   return (
     <span ref={ref} className="relative inline-flex">
-      <span onClick={() => setOpen(!open)}>{trigger}</span>
+      <span className="cursor-pointer" onClick={() => setOpen(!open)}>{trigger}</span>
       {open && (
         <div
           className={cn(
