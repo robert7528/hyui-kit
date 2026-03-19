@@ -30,6 +30,9 @@ export {
   Select, SelectGroup, SelectValue, SelectTrigger, SelectContent,
   SelectLabel, SelectItem, SelectSeparator,
 } from './components/select'
+export {
+  Popover, PopoverTrigger, PopoverContent,
+} from './components/popover'
 export { Separator } from './components/separator'
 export {
   Sheet, SheetPortal, SheetOverlay, SheetTrigger, SheetClose,
